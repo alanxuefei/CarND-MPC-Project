@@ -1,12 +1,16 @@
 # The Model
 Student describes their model in detail. This includes the state, actuators and update equations.
-The state of vehicle is composed of x and y coordinates, orientation (psi), speed (v).
-The actuator of vechicle is composed of delta (Steering angle) and a (acceleration).
-The updat equatiion:
-    x1 = x0 + v0 * cos(psi0) * dt
-    y1 = y0 + v0 * sin(psi0) * dt
-    psi1 = psi0 + (v0/Lf) * delta0 * dt
-    v1 = v0 + a0 * dt
+
+  * The state of vehicle is composed of x and y coordinates, orientation (psi), speed (v).
+
+  * The actuator of vechicle is composed of delta (Steering angle) and a (acceleration).
+  
+  * The updat equatiion:
+
+      x1 = x0 + v0 * cos(psi0) * dt  <br />
+      y1 = y0 + v0 * sin(psi0) * dt  <br />
+      psi1 = psi0 + (v0/Lf) * delta0 * dt  <br />
+      v1 = v0 + a0 * dt
 
 # Timestep Length and Elapsed Duration (N & dt)
 Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
