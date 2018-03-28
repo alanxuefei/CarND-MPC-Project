@@ -15,9 +15,10 @@ Student describes their model in detail. This includes the state, actuators and 
 # Timestep Length and Elapsed Duration (N & dt)
 Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
 
+The total timestep length (N * dt) should be useful to adjust steering angle. The two-second rule, which a driver may maintain a safe trailing distance at any speed, is used to set total timestep length. The number of points is proportional to computing resource. Therefore I use N(20) and dt(0.1) basd on my computer configuration.
+
 # Polynomial Fitting and MPC Preprocessing
-A polynomial is fitted to waypoints.
-If the student preprocesses waypoints, the vehicle state, and/or actuators prior to the MPC procedure it is described
+The polynomial coefficients are calculated by comparing the planed waypoints and predicted trajectory using a 3 orders polynomial fitting. After that, the polynomial coefficients are used to calculate the cte and epsi, which used by the solver to create a reference trajectory.
 
 # Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
