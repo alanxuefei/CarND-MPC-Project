@@ -23,6 +23,8 @@ The polynomial coefficients are calculated by comparing the planed waypoints and
 # Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
 
+The actuator (steering angle) take effect after the latency (100ms), therefore I only use the predictied trajectory after 100ms to Polynomial Fitting and MPC Preprocessing. In my codes, N = 20 and a dt = 0.1 and having a latency of 100 ms, that means that the predictied trajectory after 100ms is the second value in vector vars (value at index 1) wich corresponds to the predicted value. 
+
 
 
 
