@@ -18,7 +18,7 @@ Student discusses the reasoning behind the chosen N (timestep length) and dt (el
 The total timestep length (N * dt) should be useful to adjust steering angle. The two-second rule, which a driver may maintain a safe trailing distance at any speed, is used to set total timestep length. The number of points is proportional to computing resource. Therefore I use N(20) and dt(0.1) basd on my computer configuration.
 
 # Polynomial Fitting and MPC Preprocessing
-The polynomial coefficients are calculated by comparing the planed waypoints and predicted trajectory using a 3 orders polynomial fitting. After that, the polynomial coefficients are used to calculate the cte and epsi, which used by the solver to create a reference trajectory.
+The polynomial coefficients are calculated by comparing the planed waypoints and predicted trajectory using a 3 orders polynomial fitting. After that, the polynomial coefficients are used to calculate cross-track error, which used by the solver to create optimal values of actuator (steering angle).
 
 # Model Predictive Control with Latency
 The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
