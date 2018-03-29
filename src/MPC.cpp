@@ -6,8 +6,8 @@
 using CppAD::AD;
 
 // TODO: Set the timestep length and duration
-size_t N = 25;
-double dt = 0.05;
+size_t N = 20;
+double dt = 0.1;
 
 // This value assumes the model presented in the classroom is used.
 //
@@ -101,10 +101,6 @@ class FG_eval {
       AD<double> epsi0 = vars[epsi_start + t - 1];
       AD<double> a = vars[a_start + t - 1];
       AD<double> delta = vars[delta_start + t - 1];
-      if (t > 1) {   // use previous actuations (to account for latency)
-        a = vars[a_start + t - 2];
-        delta = vars[delta_start + t - 2];
-      }
       AD<double> f0 = coeffs[0] + coeffs[1] * x0 + coeffs[2] * CppAD::pow(x0, 2) + coeffs[3] * CppAD::pow(x0, 3);
       AD<double> psides0 = CppAD::atan(coeffs[1] + 2 * coeffs[2] * x0 + 3 * coeffs[3] * CppAD::pow(x0, 2));
 
@@ -259,8 +255,8 @@ vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
   // creates a 2 element double vector.
   vector<double> result;
 
-  result.push_back(solution.x[delta_start]);
-  result.push_back(solution.x[a_start]);
+  result.push_back(solution.x[delta_start+ 1]);
+  result.push_back(solution.x[a_start + 1]);
 
   for (int i = 0; i < N-1; i++) {
     result.push_back(solution.x[x_start + i + 1]);

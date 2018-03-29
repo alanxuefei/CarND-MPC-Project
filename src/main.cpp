@@ -136,7 +136,7 @@ int main() {
           // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
           // Otherwise the values will be in between [-deg2rad(25), deg2rad(25] instead of [-1, 1].
           msgJson["steering_angle"] = steer_value/(deg2rad(25));
-          double TargetSpeed = 8;
+          double TargetSpeed = 15;
           double Error = TargetSpeed -v;
           double throttle = Error*0.2;
           if (throttle < 0)
